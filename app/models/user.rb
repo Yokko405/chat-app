@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
+  # validates :password, length: { minimum: 6, maximum: 128 }, if: -> { password.present? }
 
   has_many :room_users
   has_many :rooms, through: :room_users
